@@ -36,5 +36,11 @@ function toggleTimerType() {
     isWorkTime = !isWorkTime;
     timeRemaining = isWorkTime ? workTime : breakTime;
     document.getElementById('message').textContent = isWorkTime ? 'Ворочайте мешки!' : 'Перерыв!';
-    startTimer();
+
+    const petrovich = document.getElementById('petrovich');
+    petrovich.style.display = 'block';
+    setTimeout(() => {
+        petrovich.style.display = 'none';
+        startTimer();
+    }, 3000); // Показываем Петровича на 3 секунды
 }
