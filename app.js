@@ -83,4 +83,42 @@ function clearTimers() {
 
 function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
-    const secs = seconds % 
+    const secs = seconds % 60;
+    return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+}
+
+function startShovelTimer() {
+    console.log("Starting shovel timer");
+    clearTimers();
+    let time = 5; // 5 seconds
+    timerDisplay.innerText = formatTime(time);
+    const shovelTimer = setInterval(() => {
+        time--;
+        timerDisplay.innerText = formatTime(time);
+        if (time <= 0) {
+            clearInterval(shovelTimer);
+            if (currentMode === 'work') {
+                workCount++;
+                showPetrovich(workPhrases);
+            } else {
+                breakCount++;
+                showPetrovich(breakPhrases);
+            }
+            updateCounters();
+        }
+    }, 1000);
+}
+
+function resetCounters() {
+    workCount = 0;
+    breakCount = 0;
+    updateCounters();
+}
+
+// Event listeners for buttons
+startButton.addEventListener('click', startWorkTimer);
+stopButton.addEventListener('click', startBreakTimer);
+shovelButton.addEventListener('click', startShovelTimer);
+resetButton.addEventListener('click', resetCounters);
+
+console.log("Meshok app is running");
