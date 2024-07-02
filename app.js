@@ -44,3 +44,47 @@ function toggleTimerType() {
         startTimer();
     }, 3000); // Показываем Петровича на 3 секунды
 }
+
+const petrovich = document.getElementById('petrovich');
+const message = document.getElementById('message');
+
+const workPhrases = [
+    "Вот это мешок! Ты заслужил перекур!",
+    "Я в юности такие мешки десятками ворочал",
+    "Можно и попиздеть"
+];
+
+const breakPhrases = [
+    "Хорош пиздеть!",
+    "Мешки сами себя не поворочают!",
+    "А ну взял и поворочал!"
+];
+
+function showPetrovich(phrases) {
+    const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+    message.innerText = randomPhrase;
+    petrovich.style.display = 'block';
+    message.style.display = 'block';
+    setTimeout(() => {
+        petrovich.style.display = 'none';
+        message.style.display = 'none';
+    }, 5000); // Show for 5 seconds
+}
+
+function startWorkTimer() {
+    setTimeout(() => {
+        showPetrovich(workPhrases);
+    }, 25 * 60 * 1000); // 25 minutes
+}
+
+function startBreakTimer() {
+    setTimeout(() => {
+        showPetrovich(breakPhrases);
+    }, 5 * 60 * 1000); // 5 minutes
+}
+
+console.log("Meshok app is running");
+
+// Example usage
+startWorkTimer(); // Start the work timer when the page loads
+// Call startBreakTimer() when you want to start the break timer
