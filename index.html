@@ -34,9 +34,22 @@
             background-color: #f44336;
             color: white;
         }
+        #petrovich {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 150px; /* Adjust as needed */
+            display: none;
+        }
         #message {
-            font-size: 24px;
-            margin: 20px;
+            position: fixed;
+            bottom: 150px; /* Adjust as needed */
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
         }
     </style>
 </head>
@@ -47,7 +60,8 @@
         <button class="button start" onclick="startTimer()">Start</button>
         <button class="button stop" onclick="stopTimer()">Stop</button>
     </div>
-    <div id="message">Ворочайте мешки!</div>
+    <img id="petrovich" src="petrovich.png" alt="Петрович"/>
+    <div id="message"></div>
     <script src="app.js"></script>
 </body>
 </html>
