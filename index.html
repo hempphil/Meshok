@@ -3,37 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мешок</title>
+    <title>Meshok</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-        #timer {
-            font-size: 48px;
-            margin: 20px;
-        }
-        .button {
-            padding: 10px 20px;
-            margin: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-        }
-        .start {
-            background-color: #4CAF50;
-            color: white;
-        }
-        .stop {
-            background-color: #f44336;
-            color: white;
-        }
         #petrovich {
             position: fixed;
             bottom: 0;
@@ -51,18 +22,23 @@
             border-radius: 5px;
             display: none;
         }
+        #controls img {
+            cursor: pointer;
+            width: 100px; /* Adjust as needed */
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
     <h1>Мешок</h1>
     <div id="timer">25:00</div>
-    <div>
-        <button class="button start" onclick="startTimer()">Start</button>
-        <button class="button stop" onclick="stopTimer()">Stop</button>
+    <div id="controls">
+        <img id="start" src="meshok.png" alt="Мешок"/>
+        <img id="stop" src="stop.png" alt="Стоп"/>
+        <img id="shovel" src="shovel.png" alt="Лопата"/>
     </div>
     <img id="petrovich" src="petrovich.png" alt="Петрович"/>
     <div id="message"></div>
     <script src="app.js"></script>
 </body>
 </html>
-
