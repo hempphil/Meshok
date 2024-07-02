@@ -4,6 +4,7 @@ const timerDisplay = document.getElementById('timer');
 const startButton = document.getElementById('start');
 const stopButton = document.getElementById('stop');
 const shovelButton = document.getElementById('shovel');
+const resetButton = document.getElementById('reset');
 
 const workPhrases = [
     "Вот это мешок! Ты заслужил перекур!",
@@ -20,6 +21,13 @@ const breakPhrases = [
 let workTimer;
 let breakTimer;
 let currentMode = 'work'; // 'work' or 'break'
+let workCount = 0;
+let breakCount = 0;
+
+function updateCounters() {
+    document.getElementById('work-count').innerText = workCount;
+    document.getElementById('break-count').innerText = breakCount;
+}
 
 function showPetrovich(phrases) {
     const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
@@ -43,6 +51,8 @@ function startWorkTimer() {
         timerDisplay.innerText = formatTime(time);
         if (time <= 0) {
             clearInterval(workTimer);
+            workCount++;
+            updateCounters();
             showPetrovich(workPhrases);
         }
     }, 1000);
@@ -59,6 +69,8 @@ function startBreakTimer() {
         timerDisplay.innerText = formatTime(time);
         if (time <= 0) {
             clearInterval(breakTimer);
+            breakCount++;
+            updateCounters();
             showPetrovich(breakPhrases);
         }
     }, 1000);
@@ -71,32 +83,4 @@ function clearTimers() {
 
 function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-}
-
-function startShovelTimer() {
-    console.log("Starting shovel timer");
-    clearTimers();
-    let time = 5; // 5 seconds
-    timerDisplay.innerText = formatTime(time);
-    const shovelTimer = setInterval(() => {
-        time--;
-        timerDisplay.innerText = formatTime(time);
-        if (time <= 0) {
-            clearInterval(shovelTimer);
-            if (currentMode === 'work') {
-                showPetrovich(workPhrases);
-            } else {
-                showPetrovich(breakPhrases);
-            }
-        }
-    }, 1000);
-}
-
-// Event listeners for buttons
-startButton.addEventListener('click', startWorkTimer);
-stopButton.addEventListener('click', startBreakTimer);
-shovelButton.addEventListener('click', startShovelTimer);
-
-console.log("Meshok app is running");
+    const secs = seconds % 
