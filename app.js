@@ -33,6 +33,7 @@ function showPetrovich(phrases) {
 }
 
 function startWorkTimer() {
+    console.log("Starting work timer");
     clearTimers();
     currentMode = 'work';
     let time = 25 * 60; // 25 minutes in seconds
@@ -48,6 +49,7 @@ function startWorkTimer() {
 }
 
 function startBreakTimer() {
+    console.log("Starting break timer");
     clearTimers();
     currentMode = 'break';
     let time = 5 * 60; // 5 minutes in seconds
@@ -74,6 +76,7 @@ function formatTime(seconds) {
 }
 
 function startShovelTimer() {
+    console.log("Starting shovel timer");
     clearTimers();
     let time = 5; // 5 seconds
     timerDisplay.innerText = formatTime(time);
