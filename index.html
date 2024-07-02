@@ -3,10 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meshok</title>
+    <title>Мешок</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #timer {
+            font-size: 48px;
+            margin: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .start {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .stop {
+            background-color: #f44336;
+            color: white;
+        }
+        #message {
+            font-size: 24px;
+            margin: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Meshok</h1>
+    <h1>Мешок</h1>
+    <div id="timer">25:00</div>
+    <div>
+        <button class="button start" onclick="startTimer()">Start</button>
+        <button class="button stop" onclick="stopTimer()">Stop</button>
+    </div>
+    <div id="message">Ворочайте мешки!</div>
     <script src="app.js"></script>
 </body>
 </html>
+
