@@ -6,7 +6,6 @@ const stopButton = document.getElementById('stop');
 const shovelButton = document.getElementById('shovel');
 const resetButton = document.getElementById('reset');
 
-
 const workPhrases = [
     "Вот это мешок! Ты заслужил перекур!",
     "Я в юности такие мешки десятками ворочал",
