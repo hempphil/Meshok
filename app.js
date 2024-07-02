@@ -83,7 +83,7 @@ function clearTimers() {
 
 function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
-    const secs = seconds % 60;
+    const secs = seconds % 60; // где-то тут ошибка
     return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 }
 
