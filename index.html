@@ -42,6 +42,18 @@
             border-radius: 5px;
             display: none;
         }
+        #counters {
+            margin: 20px 0;
+        }
+        #reset {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -51,6 +63,11 @@
         <img id="start" src="meshok.png" alt="Мешок"/>
         <img id="stop" src="stop.png" alt="Стоп"/>
         <img id="shovel" src="shovel.png" alt="Лопата"/>
+    </div>
+    <div id="counters">
+        <p>Проворочанных мешков: <span id="work-count">0</span></p>
+        <p>Периодов отдыха: <span id="break-count">0</span></p>
+        <button id="reset">Сбросить</button>
     </div>
     <img id="petrovich" src="petrovich.png" alt="Петрович"/>
     <div id="message"></div>
